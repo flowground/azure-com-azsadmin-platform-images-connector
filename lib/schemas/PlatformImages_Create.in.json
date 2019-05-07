@@ -1,0 +1,111 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "location": {
+            "required": true,
+            "type": "string"
+        },
+        "publisher": {
+            "required": true,
+            "type": "string"
+        },
+        "offer": {
+            "required": true,
+            "type": "string"
+        },
+        "sku": {
+            "required": true,
+            "type": "string"
+        },
+        "version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Parameters used to create a new platform image.",
+            "properties": {
+                "properties": {
+                    "description": "Platform image properties.",
+                    "x-ms-client-flatten": true,
+                    "properties": {
+                        "dataDisks": {
+                            "description": "Data disks used by the platform image.",
+                            "items": {
+                                "description": "Information about datadisk.",
+                                "properties": {
+                                    "lun": {
+                                        "description": "Logical unit number.",
+                                        "format": "int32",
+                                        "type": "integer"
+                                    },
+                                    "uri": {
+                                        "description": "Location of the disk template.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        },
+                        "details": {
+                            "description": "Information about the image.",
+                            "properties": {
+                                "billingPartNumber": {
+                                    "description": "The part number is used to bill for software costs.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "osDisk": {
+                            "description": "Operating system used for this platform image.",
+                            "properties": {
+                                "osType": {
+                                    "description": "Operating system type.",
+                                    "enum": [
+                                        "Unknown",
+                                        "Windows",
+                                        "Linux"
+                                    ],
+                                    "type": "string",
+                                    "x-ms-enum": {
+                                        "name": "OsType"
+                                    }
+                                },
+                                "uri": {
+                                    "description": "Location of the disk.",
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "provisioningState": {
+                            "description": "The provisioning state of the resource.",
+                            "enum": [
+                                "Creating",
+                                "Failed",
+                                "Succeeded",
+                                "Canceled"
+                            ],
+                            "type": "string",
+                            "x-ms-enum": {
+                                "name": "ProvisioningState"
+                            }
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "default": "2015-12-01-preview"
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "location": {
+            "required": true,
+            "type": "string"
+        },
+        "publisher": {
+            "required": true,
+            "type": "string"
+        },
+        "offer": {
+            "required": true,
+            "type": "string"
+        },
+        "sku": {
+            "required": true,
+            "type": "string"
+        },
+        "version": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "default": "2015-12-01-preview"
+        }
+    }
+}

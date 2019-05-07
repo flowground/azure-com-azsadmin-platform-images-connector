@@ -1,0 +1,117 @@
+{
+    "title": "Compute Admin Client",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/azsadmin-PlatformImages/2015-12-01-preview/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://adminmanagement.local.azurestack.external/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Authorization uses an Azure Active Directory OAuth2 flow.",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "PlatformImages_List": {
+            "main": "./lib/actions/PlatformImages_List.js",
+            "title": "Returns all platform images.",
+            "description": "Returns a list of all platform images.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PlatformImages_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PlatformImages_Delete": {
+            "main": "./lib/actions/PlatformImages_Delete.js",
+            "title": "Deletes a platform image matching publisher, offer, skus and version",
+            "description": "Delete a platform image",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PlatformImages_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PlatformImages_Get": {
+            "main": "./lib/actions/PlatformImages_Get.js",
+            "title": "Returns the requested platform image.",
+            "description": "Returns the specific platform image matching publisher, offer, skus and version.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PlatformImages_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "PlatformImages_Create": {
+            "main": "./lib/actions/PlatformImages_Create.js",
+            "title": "Creates a platform image.",
+            "description": "Creates a new platform image with given publisher, offer, skus and version.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/PlatformImages_Create.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "location": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string",
+            "default": "2015-12-01-preview"
+        }
+    }
+}
