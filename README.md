@@ -5,7 +5,7 @@
 A generated **flow**ground connector for the Compute Admin Client API (version 2015-12-01-preview).
 
 Generated from: https://api.apis.guru/v2/specs/azure.com/azsadmin-PlatformImages/2015-12-01-preview/swagger.json<br/>
-Generated at: 2019-05-07T17:37:32+03:00
+Generated at: 2019-06-11T18:13:40+03:00
 
 ## API Description
 
